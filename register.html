@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="keywords" content="Χημικών Προϊόντων,Τμήμα Επιθεώρησης Εργασίας">
+		<meta name="description" content="Μητρώο Χημικών Προϊόντων-Τμήμα Επιθεώρησης Εργασίας-Υπουργείο Εργασίας, Πρόνοιας και Κοινωνικών Ασφαλίσεων">
+		<meta name="author" content="Τμήμα Επιθεώρησης Εργασίας-Υπουργείο Εργασίας, Πρόνοιας και Κοινωνικών Ασφαλίσεων">
+
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			#loginPageDiv {
+				width: 700px;
+				height: 2000px;
+				position: absolute;
+				left: 50%;
+				top: 38%;
+				margin: -200px 0 0 -350px;
+				border-style: outset;
+				border-color: black;
+				background-color: white;
+				border-width: 1x;
+			}
+			.bor {
+				border-style: outset;
+				border-color: black;
+				background-color: white;
+				border-width: 1x;
+			}
+			body {
+				background-color: silver;
+			}
+			a {
+				font-size: 18px;
+			}
+			label {
+				font-size: 16px;
+			}
+			}
+
+		</style>
+
+		<script>
+			function passCheck() {
+				if (document.getElementById("passConf").value != document.getElementById("pass").value | document.getElementById("passConf").value == "") {
+					document.getElementById("wrongpassConf").innerHTML = "*Λάθος κατά την επαλήθευση του κωδικού.";
+				} else {
+					document.getElementById("wrongpassConf").innerHTML = "*";
+				}
+
+			}
+
+			function inputCheck(name, msgName) {
+				if (document.getElementById(name).checkValidity() == false) {
+					document.getElementById(msgName).innerHTML = "*Έχετε καταχώρησει μη έγκυρη τιμή.";
+				} else {
+					document.getElementById(msgName).innerHTML = "*";
+				}
+			}
+
+			function registerCheck() {
+				if (document.getElementById("regForm").checkValidity()) {
+					document.getElementById("register").style.visibility = 'hidden';
+
+					document.getElementById("message").innerHTML = "Eχετε εγγραφεί στο σύστημα.";
+					document.getElementById("goLogin").innerHTML = "Πατήστε εδώ για να συνδεθείτε στο σύστημα.";
+					document.getElementById("goLogin").href = "login.html"
+				} else {
+					document.getElementById("message").innerHTML = "Δεν έχετε συμπληρώσει σωστά όλα τα πεδία.";
+				}
+			}
+
+		</script>
+
+	</head>
+	<body>
+
+		<div id="loginPageDiv">
+
+			<img src="http://www.mlsi.gov.cy/mlsi/dli/dli.nsf/banner_gr_L.jpg?OpenImageResource"  height="79" width="126"><img src="http://www.mlsi.gov.cy/mlsi/dli/dli.nsf/banner_gr_R.jpg?OpenImageResource" height="78" width="555" >
+			<div>
+
+				<div class="col-sm-12">
+					<strong style="font-size:25px;">Εγγραφή Επιχείρησης</strong>
+					<br>
+					<br>
+					<label style="font-style: italic;color:red;">Τα υποχρεωτικά πεδία έχουν κόκκινο αστεράκι στο τέλος</label>
+				</div>
+
+				<form id="regForm">
+					<div class="col-sm-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h1 class="panel-title"><Strong style="font-size:22px;color:white;">Συνθηματικά</strong></h1>
+							</div>
+							<div class="panel-body">
+								<label style="font-style: italic;color:blue;" >Το όνομα χρήστη πρέπει να αποτελείται από 8 μέχρι 20 χαρακτήρες και να περιλαμβάνει αριθμούς, καθώς και κεφαλαία και μικρά γράμματα. Πρέπει να ξεκινά πάντοτε από γράμμα.</label>
+
+								<div class="form-group">
+									<div class="col-sm-8">
+
+										<label for="userName"> Όνομα Χρήστη:</label>
+
+										<input onblur="inputCheck('userName','wronguserName');" id ="userName"pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{7,20}$" class="form-control input-lg" type="text"required>
+										<label id="wronguserName" style="color:red;">*</label>
+									</div>
+								</div>
+								<label style="font-style: italic;color:blue;">Ο κωδικός πρέπει να αποτελείται από 8 ή περισσότερους χαρακτήρες και να περιλαμβάνει αριθμούς, καθώς και κεφαλαία και μικρά γράμματα.</label>
+
+								<div class="form-group">
+									<div class="col-sm-8">
+
+										<label for="pass"> Κωδικός:</label>
+
+										<input onblur="inputCheck('pass','wrongpass');" id ="pass"   class="form-control input-lg"  type="password" required pattern="(?=^.{7,20}$)^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+										<label id="wrongpass" style="color:red;">*</label>
+									</div>
+
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-8">
+
+										<label for="passConf"> Eπαλήθευση κωδικού:</label>
+
+										<input id ="passConf" maxlength="20"onblur="passCheck()" class="form-control input-lg" type="password" required>
+										<label id="wrongpassConf" style="color:red;">*</label>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h1 class="panel-title"><strong style="font-size:22px;color:white;">Στοιχεία Επιχείρησης</strong></h1>
+							</div>
+							<div class="panel-body">
+
+								<div class="col-sm-6">
+
+									<div class="form-group">
+										<label for="CompName">Επωνυμία Επιχείρησης:</label>
+										<input id ="CompName" onblur="inputCheck('CompName','wrongCompName');" pattern=".{3,50}"class="form-control input-lg"  type="text" required>
+										<label id="wrongCompName" style="color:red;">*</label>
+									</div>
+									<div class="form-group">
+										<label for="nomikiMorfi">Νομική Μορφή:</label>
+										<input onblur="inputCheck('nomikiMorfi','wrongnomikiMorfi');"id ="nomikiMorfi"pattern=".{5,50}" class="form-control input-lg" type="text"required>
+										<label id="wrongnomikiMorfi" style="color:red;">*</label>
+									</div>
+									<div class="form-group">
+
+										<label for="xora"> Χώρα:</label>
+
+										<input id="xora" list="xores" autocomplete="false" class="form-control input-lg" onblur="inputCheck('xora','wrongxora');"required >
+										<datalist  id ="xores">
+											<option value="Αφγανιστάν"></option>
+											<option value="Nησιά Åland"></option>
+											<option value="Αλβανία"></option>
+											<option value="Αλγερία"></option>
+											<option value="Αμερικανική Σαμόα"></option>
+											<option value="Ανδόρα"></option>
+											<option value="Αγκόλα"></option>
+											<option value="Ανγκουίλα"></option>
+											<option value="Ανταρκτική"></option>
+											<option value="Αντίγκουα και Μπαρμπούντα"></option>
+											<option value="Αργεντινή"></option>
+											<option value="Αρμενία"></option>
+											<option value="Αρούμπα"></option>
+											<option value="Αυστραλία"></option>
+											<option value="Αυστρία"></option>
+											<option value="Αζερμπαϊτζάν"></option>
+											<option value="Μπαχάμες"></option>
+											<option value="Μπαχρέιν"></option>
+											<option value="Μπαγκλαντές"></option>
+											<option value="Μπαρμπάντος"></option>
+											<option value="Λευκορωσία"></option>
+											<option value="Βέλγιο"></option>
+											<option value="Μπελίζ"></option>
+											<option value="Μπενίν"></option>
+											<option value="Βερμούδες"></option>
+											<option value="Μπουτάν"></option>
+											<option value="Βολιβία, πολυεθνικά κατάσταση του"></option>
+											<option value="Μποναίρ, Άγιος Ευστάθιος και Σάμπα"></option>
+											<option value="Βοσνία και Ερζεγοβίνη"></option>
+											<option value="Μποτσουάνα"></option>
+											<option value="Νήσος Μπουβέ"></option>
+											<option value="Βραζιλία"></option>
+											<option value="Βρετανικό Έδαφος Ινδικού Ωκεανού"></option>
+											<option value="Μπρουνέι Νταρουσαλάμ"></option>
+											<option value="Βουλγαρία"></option>
+											<option value="Μπουρκίνα Φάσο"></option>
+											<option value="Μπουρούντι"></option>
+											<option value="Καμπότζη"></option>
+											<option value="Καμερούν"></option>
+											<option value="Καναδάς"></option>
+											<option value="Πράσινο Ακρωτήριο"></option>
+											<option value="Νησιά Καϊμάν"></option>
+											<option value="Κεντροαφρικανική Δημοκρατία"></option>
+											<option value="Τσαντ"></option>
+											<option value="Χιλή"></option>
+											<option value="Κίνα"></option>
+											<option value="Νήσος των Χριστουγέννων"></option>
+											<option value="Νησιά Κόκος (Κίλινγκ)"></option>
+											<option value="Κολομβία"></option>
+											<option value="Κομόρες"></option>
+											<option value="Κονγκό"></option>
+											<option value="Κονγκό, Λαϊκή Δημοκρατία του"></option>
+											<option value="Νήσοι Κουκ"></option>
+											<option value="Κόστα Ρίκα"></option>
+											<option value="Ακτή Ελεφαντοστού"></option>
+											<option value="Κροατία"></option>
+											<option value="Κούβα"></option>
+											<option value="Κουρασάο"></option>
+											<option value="Κύπρος"></option>
+											<option value="Τσεχία"></option>
+											<option value="Δανία"></option>
+											<option value="Τζιμπουτί"></option>
+											<option value="Ντομίνικα"></option>
+											<option value="Δομινικανή Δημοκρατία"></option>
+											<option value="Ισημερινός"></option>
+											<option value="Αίγυπτος"></option>
+											<option value="Ελ Σαλβαδόρ"></option>
+											<option value="Ισημερινή Γουινέα"></option>
+											<option value="Ερυθραία"></option>
+											<option value="Εσθονία"></option>
+											<option value="Αιθιοπία"></option>
+											<option value="Νησιά Φώκλαντ (Μαλβίνες)"></option>
+											<option value="Νησιά Φερόε"></option>
+											<option value="Φίτζι"></option>
+											<option value="Φινλανδία"></option>
+											<option value="Γαλλία"></option>
+											<option value="Γαλλική Γουιάνα"></option>
+											<option value="Γαλλική Πολυνησία"></option>
+											<option value="Γαλλικά Νότια Εδάφη"></option>
+											<option value="Γκαμπόν"></option>
+											<option value="Γκάμπια"></option>
+											<option value="Γεωργία"></option>
+											<option value="Γερμανία"></option>
+											<option value="Γκάνα"></option>
+											<option value="Γιβραλτάρ"></option>
+											<option value="Ελλάδα"></option>
+											<option value="Γροιλανδία"></option>
+											<option value="Γρενάδα"></option>
+											<option value="Γουαδελούπη"></option>
+											<option value="Γκουάμ"></option>
+											<option value="Γουατεμάλα"></option>
+											<option value="Γουινέα"></option>
+											<option value="Γουινέα-Μπισάου"></option>
+											<option value="Γουιάνα"></option>
+											<option value="Αϊτή"></option>
+											<option value="ΜακΝτόναλντ Νήσοι"></option>
+											<option value="Βατικανό"></option>
+											<option value="Ονδούρα"></option>
+											<option value="Χονγκ Κονγκ"></option>
+											<option value="Ουγγαρία"></option>
+											<option value="Ισλανδία"></option>
+											<option value="Ινδία"></option>
+											<option value="Ινδονησία"></option>
+											<option value="Ιράν, Ισλαμική Δημοκρατία του"></option>
+											<option value="Ιράκ"></option>
+											<option value="Ιρλανδία"></option>
+											<option value="Νήσος του Μαν"></option>
+											<option value="Ισραήλ"></option>
+											<option value="Ιταλία"></option>
+											<option value="Τζαμάικα"></option>
+											<option value="Ιαπωνία"></option>
+											<option value="Τζέρσεϊ"></option>
+											<option value="Ιορδανία"></option>
+											<option value="Καζακστάν"></option>
+											<option value="Κένυα"></option>
+											<option value="Κιριμπάτι"></option>
+											<option value="Κορέα, Λαϊκή Δημοκρατία του"></option>
+											<option value="Κορέα, Δημοκρατία της"></option>
+											<option value="Κουβέιτ"></option>
+											<option value="Κιργιστάν"></option>
+											<option value="Δημοκρατική Λαϊκή Δημοκρατία"></option>
+											<option value="Λετονία"></option>
+											<option value="Λίβανος"></option>
+											<option value="Λεσότο"></option>
+											<option value="Λιβερία"></option>
+											<option value="Λιβύη"></option>
+											<option value="Λιχτενστάιν"></option>
+											<option value="Λιθουανία"></option>
+											<option value="Λουξεμβούργο"></option>
+											<option value="Μακάο"></option>
+											<option value="Μαδαγασκάρη"></option>
+											<option value="Μαλάουι"></option>
+											<option value="Μαλαισία"></option>
+											<option value="Μαλδίβες"></option>
+											<option value="Μάλι"></option>
+											<option value="Μάλτα"></option>
+											<option value="Νησιά Μάρσαλ"></option>
+											<option value="Μαρτινίκα"></option>
+											<option value="Μαυριτανία"></option>
+											<option value="Μαυρίκιος"></option>
+											<option value="Μαγιότ"></option>
+											<option value="Μεξικό"></option>
+											<option value="Μικρονησία, Ομόσπονδες Πολιτείες της"></option>
+											<option value="Μολδαβία, Δημοκρατία της"></option>
+											<option value="Μονακό"></option>
+											<option value="Μογγολία"></option>
+											<option value="Μαυροβούνιο"></option>
+											<option value="Μονσεράτ"></option>
+											<option value="Μαρόκο"></option>
+											<option value="Μοζαμβίκη"></option>
+											<option value="Μιανμάρ"></option>
+											<option value="Ναμίμπια"></option>
+											<option value="Ναουρού"></option>
+											<option value="Νεπάλ"></option>
+											<option value="Ολλανδία"></option>
+											<option value="Νέα Καληδονία"></option>
+											<option value="Νέα Ζηλανδία"></option>
+											<option value="Νικαράγουα"></option>
+											<option value="Νίγηρας"></option>
+											<option value="Νιγηρία"></option>
+											<option value="Νιούε"></option>
+											<option value="Νησί Νόρφολκ"></option>
+											<option value="Βόρειες Μαριάνες Νήσοι"></option>
+											<option value="Νορβηγία"></option>
+											<option value="Ομάν"></option>
+											<option value="Πακιστάν"></option>
+											<option value="Παλάου"></option>
+											<option value="Κατεχόμενα Παλαιστινιακά Εδάφη"></option>
+											<option value="Παναμάς"></option>
+											<option value="Παπούα Νέα Γουινέα"></option>
+											<option value="Παραγουάη"></option>
+											<option value="Περού"></option>
+											<option value="Φιλιππίνες"></option>
+											<option value="Πίτκερν"></option>
+											<option value="Πολωνία"></option>
+											<option value="Πορτογαλία"></option>
+											<option value="Πουέρτο Ρίκο"></option>
+											<option value="Κατάρ"></option>
+											<option value="Ρεϋνιόν"></option>
+											<option value="Ρουμανία"></option>
+											<option value="Ρωσική Ομοσπονδία"></option>
+											<option value=" Ρουάντα"></option>
+											<option value="Άγιος Βαρθολομαίος"></option>
+											<option value="Αγία Ελένη, της Αναλήψεως και Τριστάν ντα Κούνια"></option>
+											<option value="Άγιος Χριστόφορος και Νέβις"></option>
+											<option value="Αγία Λουκία"></option>
+											<option value="Άγιος Μαρτίνος (Γαλλικό τμήμα)"></option>
+											<option value="Σαιν Πιερ και Μικελόν"></option>
+											<option value="Άγιος Βικέντιος και Γρεναδίνες"></option>
+											<option value="Σαμόα"></option>
+											<option value="Σαν Μαρίνο"></option>
+											<option value="Σάο Τομέ και Πρίνσιπε"></option>
+											<option value="Σαουδική Αραβία"></option>
+											<option value="Σενεγάλη"></option>
+											<option value="Σερβία"></option>
+											<option value="Σεϋχέλλες"></option>
+											<option value="Σιέρα Λεόνε"></option>
+											<option value="Σιγκαπούρη"></option>
+											<option value="Άγιος Μαρτίνος (ολλανδικό τμήμα)"></option>
+											<option value="Σλοβακία"></option>
+											<option value="Σλοβενία"></option>
+											<option value="Νησιά Σολομώντα"></option>
+											<option value="Σομαλία"></option>
+											<option value="Νότια Αφρική"></option>
+											<option value="Νότια Γεωργία και Νότια Νησιά Σάντουιτς"></option>
+											<option value="Νότιο Σουδάν"></option>
+											<option value="Ισπανία"></option>
+											<option value="Σρι Λάνκα"></option>
+											<option value="Σουδάν"></option>
+											<option value="Σουρινάμ"></option>
+											<option value="Σβάλμπαρντ και Γιαν Μαγιέν"></option>
+											<option value="Σουαζιλάνδη"></option>
+											<option value="Σουηδία"></option>
+											<option value="Ελβετία"></option>
+											<option value="Συριακή Αραβική Δημοκρατία"></option>
+											<option value="Ταϊβάν, Επαρχία της Κίνας"></option>
+											<option value="Τατζικιστάν"></option>
+											<option value="Τανζανία, Ενωμένη Δημοκρατία της"></option>
+											<option value="Ταϊλάνδη"></option>
+											<option value="Ανατολικό Τιμόρ"></option>
+											<option value="Τόγκο"></option>
+											<option value="Τοκελάου"></option>
+											<option value="Τόνγκα"></option>
+											<option value="Τρινιντάντ και Τομπάγκο"></option>
+											<option value="Τυνησία"></option>
+											<option value="Τουρκία"></option>
+											<option value="Τουρκμενιστάν"></option>
+											<option value="Τερκς και Κάικος"></option>
+											<option value="Τουβαλού"></option>
+											<option value="Ουγκάντα"></option>
+											<option value="Ουκρανία"></option>
+											<option value="Ηνωμένα Αραβικά Εμιράτα"></option>
+											<option value="Ηνωμένο Βασίλειο"></option>
+											<option value="Ηνωμένες Πολιτείες"></option>
+											<option value="Ηνωμένες Πολιτείες Μικρά απομονωμένα νησιά"></option>
+											<option value="Ουρουγουάη"></option>
+											<option value="Ουζμπεκιστάν"></option>
+											<option value="Βανουάτου"></option>
+											<option value="Βενεζουέλα, Βολιβαριανής Δημοκρατίας της"></option>
+											<option value="Βιετνάμ"></option>
+											<option value="Βρετανικοί Παρθένοι Νήσοι"></option>
+											<option value="Αμερικανικές Παρθένοι Νήσοι"></option>
+											<option value="Ουόλις και Φουτούνα"></option>
+											<option value="Δυτική Σαχάρα"></option>
+											<option value="Υεμένη"></option>
+											<option value="Ζάμπια"></option>
+											<option value="Ζιμπάμπουε">Ζιμπάμπουε></option>
+
+										</datalist>
+
+										<label id="wrongxora" style="color:red;">*</label>
+									</div>
+									<div class="form-group">
+										<label for="diefthinsi"> Διεύθυνση:</label>
+										<input onblur="inputCheck('diefthinsi','wrongdiefthinsi');" id ="diefthinsi"pattern=".{4,100}" class="form-control input-lg" type="text"required>
+										<label id="wrongdiefthinsi" style="color:red;">*</label>
+									</div>
+									<div class="form-group">
+										<label for="tel"> Τηλέφωνο:</label>
+										<input onblur="inputCheck('tel','wrongtel');" id ="tel"pattern=".{7,20}" class="form-control input-lg" type="number"required>
+										<label id="wrongtel" style="color:red;">*</label>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="CompName">Εμπορική Επωνυμία Επιχείρησης:</label>
+										<input id ="CompName" onblur="inputCheck('CompName','wrongCompName');" pattern=".{3,50}"class="form-control input-lg" type="text" required>
+										<label id="wrongCompName" style="color:red;">*</label>
+									</div>
+									<div class="form-group">
+										<label for="emailAddress"> Ηλεκτρονικό ταχυδρομείο:</label>
+										<input onblur="inputCheck('emailAddress','wrongemailAddress');"  pattern=".{5,50}" id ="emailAddress" class="form-control input-lg" type="email"required>
+										<label id="wrongemailAddress" style="color:red;">*</label>
+									</div>
+									<div class="form-group">
+										<label for="poli"> Πόλη:</label>
+										<input onblur="inputCheck('poli','wrongpoli');"  id ="poli"pattern=".{4,50}" class="form-control input-lg" type="text"required>
+										<label id="wrongpoli" style="color:red;">*</label>
+									</div>
+
+									<div class="form-group">
+										<label for="taxiKodi">Ταχυδρομικός Κώδικας:</label>
+										<input onblur="inputCheck('taxiKodi','wrongtaxiKodi');" id ="taxiKodi"pattern=".{4,20}" class="form-control input-lg" type="number"required>
+										<label id="wrongtaxiKodi" style="color:red;">*</label>
+									</div>
+									<div class="form-group">
+
+										<label for="fax"> Φαξ: </label>
+										<input pattern=".{8,20}" onblur="inputCheck('fax','wrongfax');"  id ="fax" class="form-control input-lg" type="number"required>
+										<label id="wrongfax" style="color:red;">*</label>
+									</div>
+
+								</div>
+
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label for="decr"> Άλλες Πληροφορίες:</label>
+										<textarea pattern=".{0,200}" id="decr"name="description" rows="5" class="form-control input-lg" cols="20"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12">
+
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h1 class="panel-title"><strong style="font-size:22px;color:white;">Στοιχεία Υπεύθυνου Επικοινωνίας</strong></h1>
+							</div>
+							<div class="panel-body">
+
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="comName"> Όνομα:</label>
+										<input onblur="inputCheck('comName','wrongcomName');" id ="comName"pattern=".{5,50}" class="form-control input-lg" type="text"required>
+										<label id="wrongcomName" style="color:red;">*</label>
+									</div>
+									<div class="form-group">
+										<label for="comEmail"> Ηλεκτρονικό Ταχυδρομείο:</label>
+										<input onblur="inputCheck('comEmail','wrongcomEmail');" id ="comEmail"maxlength="50" class="form-control input-lg" type="email"required>
+										<label id="wrongcomEmail" style="color:red;">*</label>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="comSName"> Επίθετο:</label>
+										<input onblur="inputCheck('comSName','wrongcomSName');"  id ="comSName" pattern=".{5,50}" class="form-control input-lg" type="text"required>
+										<label id="wrongcomSName" style="color:red;">*</label>
+									</div>
+
+									<div class="form-group">
+										<label for="comTel"> Τηλέφωνο:</label>
+										<input onblur="inputCheck('comTel','wrongcomTel');" id ="comTel"pattern=".{8,20}" class="form-control input-lg" type="number"required>
+										<label id="wrongcomTel" style="color:red;">*</label>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<label style="font-size:18px;color:blue;"id="message"></label>
+									<br>
+									<a style="font-size:18px;" id="goLogin"></a>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-6">
+
+										<input id="register"name="Submit1" type="button" value="Εγγραφή " onclick="registerCheck()" class="btn btn-default btn-lg btn-primary"style="font-size:18px;"  >
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+			</form>
+		</div>
+
+		</div>
+	</body>
+</html>
