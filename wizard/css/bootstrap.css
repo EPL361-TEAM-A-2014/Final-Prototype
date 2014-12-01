@@ -2749,7 +2749,7 @@ select[multiple].form-group-lg .form-control {
 .form-horizontal .checkbox-inline {
   padding-top: 7px;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 15px;
 }
 .form-horizontal .radio,
 .form-horizontal .checkbox {
@@ -6074,6 +6074,8 @@ button.close {
 .container-fluid:after,
 .row:before,
 .row:after,
+.div:before,
+.div:after,
 .form-horizontal .form-group:before,
 .form-horizontal .form-group:after,
 .btn-toolbar:before,
@@ -6096,6 +6098,7 @@ button.close {
 .modal-footer:after {
   display: table;
   content: " ";
+   margin-bottom: 15px;
 }
 .clearfix:after,
 .dl-horizontal dd:after,

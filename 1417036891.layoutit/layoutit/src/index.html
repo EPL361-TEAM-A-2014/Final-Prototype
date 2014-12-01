@@ -31,7 +31,337 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
     
+      <script type="text/javascript">
+
     
+
+        // This function handles style and display changes for each next button click
+
+        function handleWizardNext()
+
+        {
+
+            if (document.getElementById('ButtonNext').name == 'Step2')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step3';
+
+                document.getElementById('ButtonPrevious').name = 'Step1';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonPrevious').disabled = '';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step1').style.display = 'none';
+
+                document.getElementById('Step2').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                document.getElementById('HeaderTableStep2').style.color= '#66CCFF';
+
+                 document.getElementById('HeaderTableStep1').style.color = '#9DA1A3';
+
+            }
+
+            else if (document.getElementById('ButtonNext').name == 'Step3')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step4';
+
+                document.getElementById('ButtonPrevious').name = 'Step2';
+
+                document.getElementById('Step2').style.display = 'none';
+
+                document.getElementById('Step3').style.display = '';
+
+                // Change background color on header to highlight new step
+
+               
+                document.getElementById('HeaderTableStep3').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep2').style.color = '#9DA1A3';
+
+
+            }
+
+            else if (document.getElementById('ButtonNext').name == 'Step4')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step5';
+
+                document.getElementById('ButtonPrevious').name = 'Step3';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step3').style.display = 'none';
+
+                document.getElementById('Step4').style.display = '';
+
+                // Change background color on header to highlight new step
+
+               
+                document.getElementById('HeaderTableStep4').style.color= '#66CCFF';
+
+                 document.getElementById('HeaderTableStep3').style.color = '#9DA1A3';
+
+
+            }
+
+            else if (document.getElementById('ButtonNext').name == 'Step5')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = '';
+
+                document.getElementById('ButtonPrevious').name = 'Step4';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonNext').disabled = 'disabled';
+
+                document.getElementById('SubmitFinal').disabled = '';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step4').style.display = 'none';
+
+                document.getElementById('Step5').style.display = '';
+
+                // Change background color on header to highlight new step
+
+               
+                document.getElementById('HeaderTableStep5').style.color= '#66CCFF';
+
+                 document.getElementById('HeaderTableStep4').style.color = '#9DA1A3';
+
+
+                // Load table elements for final review step
+
+                loadStep5Review();
+
+            }
+
+        }
+
+        
+
+        // This function handles style and display changes for each previous button click
+
+        function handleWizardPrevious()
+
+        {
+
+            if (document.getElementById('ButtonPrevious').name == 'Step1')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step2';
+
+                document.getElementById('ButtonPrevious').name = '';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonPrevious').disabled = 'disabled';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step2').style.display = 'none';
+
+                document.getElementById('Step1').style.display = '';
+
+                // Change background color on header to highlight new step
+				 document.getElementById('HeaderTableStep1').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep2').style.color = '#000000';
+
+
+            }
+
+            else if (document.getElementById('ButtonPrevious').name == 'Step2')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step3';
+
+                document.getElementById('ButtonPrevious').name = 'Step1';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step3').style.display = 'none';
+
+                document.getElementById('Step2').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                 document.getElementById('HeaderTableStep2').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep3').style.color = '#000000';
+            }
+
+            else if (document.getElementById('ButtonPrevious').name == 'Step3')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step4';
+
+                document.getElementById('ButtonPrevious').name = 'Step2';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step4').style.display = 'none';
+
+                document.getElementById('Step3').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                 document.getElementById('HeaderTableStep3').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep4').style.color = '#000000';
+
+            }
+
+            else if (document.getElementById('ButtonPrevious').name == 'Step4')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step5';
+
+                document.getElementById('ButtonPrevious').name = 'Step3';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonNext').disabled = '';
+
+                document.getElementById('SubmitFinal').disabled = 'disabled';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step5').style.display = 'none';
+
+                document.getElementById('Step4').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                 document.getElementById('HeaderTableStep4').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep5').style.color = '#000000';
+
+            }
+
+        }
+
+
+        
+
+        // This function handles loading the review table innerHTML for the user to review before final submission
+
+        function loadStep5Review()
+
+        {
+
+            // Assign values to appropriate cells in review table
+
+            document.getElementById('ReviewFirstName').innerHTML = document.getElementById('TextFirstName').value;
+
+            document.getElementById('ReviewMiddleName').innerHTML = document.getElementById('TextMiddleName').value;
+
+            document.getElementById('ReviewLastName').innerHTML = document.getElementById('TextLastName').value;
+
+            document.getElementById('ReviewEmail').innerHTML = document.getElementById('TextEmail').value;
+
+            // Indicate Yes or No based on subscription checkbox checked
+
+            if (document.getElementById('CheckboxHtmlGoodies').checked == 1)
+
+            {
+
+                document.getElementById('ReviewHtmlGoodies').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewHtmlGoodies').innerHTML = 'No';
+
+            }
+
+            if (document.getElementById('CheckboxJavaScript').checked == 1)
+
+            {
+
+                document.getElementById('ReviewJavaScript').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewJavaScript').innerHTML = 'No';
+
+            }
+
+            if (document.getElementById('CheckboxWdvl').checked == 1)
+
+            {
+
+                document.getElementById('ReviewWdvl').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewWdvl').innerHTML = 'No';
+
+            }
+
+            // Special case to display password as asterisks
+
+            var iCounter = 1;
+
+            var iCharacterCount = document.getElementById('TextPassword').value.length;
+
+            var passwordMasked = '';
+
+            for (iCounter = 1; iCounter <= iCharacterCount; iCounter++)
+
+            {
+
+                passwordMasked = passwordMasked + '*';
+
+            }
+
+            document.getElementById('ReviewPassword').innerHTML = passwordMasked;
+
+        }
+
+    </script>
     
     
     
@@ -259,14 +589,255 @@
 					</div>
                      <!-----------------------------Prosthiki -------------------------------- -->
 					<div class="tab-pane" id="Prosthiki">
-						<p>
-							<ol class="breadcrumb">
-                              <li><a href="#">Home</a></li>
-                              <li><a href="#">Library</a></li>
-                              <li class="active">Data</li>
-                            </ol>
-						</p>
+						<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+
+  
+  <form id="SubscriptionWizard" action="" method="post">
+
+    <table class="table table-hover" cellpadding="5" cellspacing="0" id="HeaderTable">
+
+        <tr>
+
+            <td id="HeaderTableStep1" font color="#66CCFF">
+
+                Εταιρία Παρασκευής</td>
+
+            <td id="HeaderTableStep2">
+
+               Προμηθευτικές Εταιρίες</td>
+
+            <td id="HeaderTableStep3" >
+
+                Στοιχεία Χιμικού Προιόντος</td>
+
+            <td id="HeaderTableStep4" >
+
+                Χημικές Ουσίες</td>
+
+            <td id="HeaderTableStep5" >
+
+                Αναρτηση ΔΔΑ και Ετικέτα</td>
+
+    
+     </tr>
+
+    </table>
+
+    <br />
+
+<span id="Step1">
+
+   
+
+    <br />
+    <br />
+    
+    <br />
+    <br />
+    
+    <div class="col-md-12 column" align="right">
+
+            <input id="ButtonNext" class="btn btn-default" type="button" value="Next" name="Step2" onClick="handleWizardNext()" /></div>
+
+</span>
+
+<span id="Step2" style="display:none">
+
+    
+    
+    
+    <br />
+    <br />
+    
+    <br />
+    <br />
+    
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-6 column" align="left">
+        	<input id="ButtonPrevious" class="btn btn-default" type="button" value="Previous"  name="" onClick="handleWizardPrevious()" />
+		</div>
+		<div class="col-md-6 column" align="right">
+         <input id="ButtonNext" class="btn btn-default" type="button" value="Next" name="Step2" onClick="handleWizardNext()" />
+		</div>
+	</div>
+</div>
+
+
+</span>
+
+<span id="Step3" style="display:none">
+
+
+ 
+
+ 
+ 
+
+ 
+		<div class="col-md-12 ">
+        <div class="container">
+        	<div class="row">
+       				 <div class="panel-heading " >
+                            <h2 class="panel-title col-sm-offset-1"><strong>Στοιχεία Χιμικού  Προιόντος</strong></h2>
+                            </div>  
+                              
+                             <br>
+                      <form class="form-horizontal" role="form">
+                      
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Χημική Ονομασία:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                          </div>
+                        </div>
+                         <br> <br>
+                  
+                      
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Εμπορική Ονομασία:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                          </div>
+                        </div>
+                       
+                        <br> <br>
+                               <div class="form-group">
+                              <label class="control-label col-sm-4" for="fax">Προβλεπόμενες Χρήσεις:</label>
+                              <div class="col-sm-6">
+                                <textarea type="fax" class="form-control" rows="5" id="inputotherinfo" /></textarea>
+                                <br>
+                              </div>
+                           </div>
                         
+                     <br> <br>
+                           
+                           <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Κατάσταση:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                            <br>
+                          </div>
+                        </div>
+                        
+                      <br> <br>
+                         <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Διεύθυνση Αποθήκευσης Μείγματος:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                            <br>
+                          </div>
+                        </div>
+                    
+                         <br> <br>
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Στοιχεία Ταξινόμησης:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                            <br>
+                          </div>
+                        </div>
+                   <br> <br>
+                         <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Όγκος Συσκευασίας:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                            <br>
+                          </div>
+                        </div>
+                        
+                         <br> <br>
+       
+                            <div class="form-group">
+                              <label class="control-label col-sm-4" for="fax">Άλλες Πληροφορίες:</label>
+                              <div class="col-sm-6">
+                                <textarea type="fax" class="form-control" rows="5" id="inputotherinfo" /></textarea>
+                                <br>
+                              </div>
+                           </div>
+                        </form>
+                        
+                        
+                        
+        
+        
+		</div>
+	</div>
+</div>
+
+ <br><br><br><br>
+    
+    
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-6 column" align="left">
+        	<input id="ButtonPrevious" class="btn btn-default" type="button" value="Previous"  name="" onClick="handleWizardPrevious()" />
+		</div>
+		<div class="col-md-6 column" align="right">
+         <input id="ButtonNext" class="btn btn-default" type="button" value="Next" name="Step2" onClick="handleWizardNext()" />
+		</div>
+	</div>
+</div>
+
+
+</span>
+
+<span id="Step4" style="display:none">
+
+
+     <br />
+    <br />
+    
+    <br />
+    <br />
+    
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-6 column" align="left">
+        	<input id="ButtonPrevious" class="btn btn-default" type="button" value="Previous"  name="" onClick="handleWizardPrevious()" />
+		</div>
+		<div class="col-md-6 column" align="right">
+         <input id="ButtonNext" class="btn btn-default" type="button" value="Next" name="Step2" onClick="handleWizardNext()" />
+		</div>
+	</div>
+</div>
+
+
+</span>
+
+<span id="Step5" style="display:none">
+
+  
+     <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-6 column" align="left">
+        	<input id="ButtonPrevious" class="btn btn-default" type="button" value="Previous"  name="" onClick="handleWizardPrevious()" />
+		</div>
+		<div class="col-md-6 column" align="right">
+         <input id="SubmitFinal" class="btn btn-default"type="submit" value="Finish"  />
+		</div>
+	</div>
+</div>
+
+</span>
+ <br />
+  <br />
+   <br />
+
+
+
+    
+</form>
+	
+    </div></div></div>
                         
                         
 					</div>
