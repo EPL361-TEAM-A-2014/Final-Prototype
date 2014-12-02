@@ -18,3 +18,8 @@ textarea{
 	min-height:100px;
 
 }
+.modal-dialog {
+width: 1100px;
+padding-top: 30px;
+padding-bottom: 30px;
+}
