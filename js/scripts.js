@@ -1,3 +1,5 @@
+
+
 // This function handles style and display changes for each next button click
 
         function handleWizardNext()
