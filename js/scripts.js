@@ -339,7 +339,8 @@ function addCompany()
 		var newTBDiv = document.createElement('div');
         newTBDiv.setAttribute('class','form-group');
 		newTBDiv.setAttribute('id','entry'+intTextBox);
-		newTBDiv.innerHTML =        " <label class='col-sm-5 control-label' for='inputcompany'>Επωνυμία Επιχείρησης</label><div class='col-sm-4'><input class='form-control' id='inputcompany' name='inputcompany' data-toggle='modal' data-target='#modal-container-803714'type='text'></div><div class='col-md-2'><input id='Buttonremove' class='btn btn-danger' type='button' onclick='removeCompanyID("+intTextBox+");'value='Χ'  name='addentry' /></div><br><br>"; 
+		newTBDiv.innerHTML =        " <label class='col-sm-5 control-label' for='inputcompany'>Επωνυμία Επιχείρησης</label><div class='col-sm-4'><input class='form-control' id='inputcompany' name='inputcompany' data-toggle='modal'
+         data-target='#modal-container-803714'type='text'></div><div class='col-md-2'><input id='Buttonremove' class='btn btn-danger' type='button' onclick='removeCompanyID("+intTextBox+");'value='Χ'  name='addentry' /></div><br><br>"; 
 		contentID.appendChild(newTBDiv);
 	} else {
 		alert("Φτάσατε το μέγιστο όριο εισαγωγής στοιχείων προμηθευτών");
