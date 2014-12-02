@@ -16,7 +16,6 @@
 	<link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -28,342 +27,6 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="img/favicon.png">
-  
-
-    
-      <script type="text/javascript">
-
-    
-
-        // This function handles style and display changes for each next button click
-
-        function handleWizardNext()
-
-        {
-
-            if (document.getElementById('ButtonNext').name == 'Step2')
-
-            {
-
-                // Change the button name - we use this to keep track of which step to display on a click
-
-                document.getElementById('ButtonNext').name = 'Step3';
-
-                document.getElementById('ButtonPrevious').name = 'Step1';
-
-                // Disable/enable buttons when reach reach start and review steps
-
-                document.getElementById('ButtonPrevious').disabled = '';
-
-                // Set new step to display and turn off display of current step
-
-                document.getElementById('Step1').style.display = 'none';
-
-                document.getElementById('Step2').style.display = '';
-
-                // Change background color on header to highlight new step
-
-                document.getElementById('HeaderTableStep2').style.color= '#66CCFF';
-
-                 document.getElementById('HeaderTableStep1').style.color = '#9DA1A3';
-
-            }
-
-            else if (document.getElementById('ButtonNext').name == 'Step3')
-
-            {
-
-                // Change the button name - we use this to keep track of which step to display on a click
-
-                document.getElementById('ButtonNext').name = 'Step4';
-
-                document.getElementById('ButtonPrevious').name = 'Step2';
-
-                document.getElementById('Step2').style.display = 'none';
-
-                document.getElementById('Step3').style.display = '';
-
-                // Change background color on header to highlight new step
-
-               
-                document.getElementById('HeaderTableStep3').style.color= '#66CCFF';
-
-                document.getElementById('HeaderTableStep2').style.color = '#9DA1A3';
-
-
-            }
-
-            else if (document.getElementById('ButtonNext').name == 'Step4')
-
-            {
-
-                // Change the button name - we use this to keep track of which step to display on a click
-
-                document.getElementById('ButtonNext').name = 'Step5';
-
-                document.getElementById('ButtonPrevious').name = 'Step3';
-
-                // Set new step to display and turn off display of current step
-
-                document.getElementById('Step3').style.display = 'none';
-
-                document.getElementById('Step4').style.display = '';
-
-                // Change background color on header to highlight new step
-
-               
-                document.getElementById('HeaderTableStep4').style.color= '#66CCFF';
-
-                 document.getElementById('HeaderTableStep3').style.color = '#9DA1A3';
-
-
-            }
-
-            else if (document.getElementById('ButtonNext').name == 'Step5')
-
-            {
-
-                // Change the button name - we use this to keep track of which step to display on a click
-
-                document.getElementById('ButtonNext').name = '';
-
-                document.getElementById('ButtonPrevious').name = 'Step4';
-
-                // Disable/enable buttons when reach reach start and review steps
-
-                document.getElementById('ButtonNext').disabled = 'disabled';
-
-                document.getElementById('SubmitFinal').disabled = '';
-
-                // Set new step to display and turn off display of current step
-
-                document.getElementById('Step4').style.display = 'none';
-
-                document.getElementById('Step5').style.display = '';
-
-                // Change background color on header to highlight new step
-
-               
-                document.getElementById('HeaderTableStep5').style.color= '#66CCFF';
-
-                 document.getElementById('HeaderTableStep4').style.color = '#9DA1A3';
-
-
-                // Load table elements for final review step
-
-                loadStep5Review();
-
-            }
-
-        }
-
-        
-
-        // This function handles style and display changes for each previous button click
-
-        function handleWizardPrevious()
-
-        {
-
-            if (document.getElementById('ButtonPrevious').name == 'Step1')
-
-            {
-
-                // Change the button name - we use this to keep track of which step to display on a click
-
-                document.getElementById('ButtonNext').name = 'Step2';
-
-                document.getElementById('ButtonPrevious').name = '';
-
-                // Disable/enable buttons when reach reach start and review steps
-
-                document.getElementById('ButtonPrevious').disabled = 'disabled';
-
-                // Set new step to display and turn off display of current step
-
-                document.getElementById('Step2').style.display = 'none';
-
-                document.getElementById('Step1').style.display = '';
-
-                // Change background color on header to highlight new step
-				 document.getElementById('HeaderTableStep1').style.color= '#66CCFF';
-
-                document.getElementById('HeaderTableStep2').style.color = '#000000';
-
-
-            }
-
-            else if (document.getElementById('ButtonPrevious').name == 'Step2')
-
-            {
-
-                // Change the button name - we use this to keep track of which step to display on a click
-
-                document.getElementById('ButtonNext').name = 'Step3';
-
-                document.getElementById('ButtonPrevious').name = 'Step1';
-
-                // Set new step to display and turn off display of current step
-
-                document.getElementById('Step3').style.display = 'none';
-
-                document.getElementById('Step2').style.display = '';
-
-                // Change background color on header to highlight new step
-
-                 document.getElementById('HeaderTableStep2').style.color= '#66CCFF';
-
-                document.getElementById('HeaderTableStep3').style.color = '#000000';
-            }
-
-            else if (document.getElementById('ButtonPrevious').name == 'Step3')
-
-            {
-
-                // Change the button name - we use this to keep track of which step to display on a click
-
-                document.getElementById('ButtonNext').name = 'Step4';
-
-                document.getElementById('ButtonPrevious').name = 'Step2';
-
-                // Set new step to display and turn off display of current step
-
-                document.getElementById('Step4').style.display = 'none';
-
-                document.getElementById('Step3').style.display = '';
-
-                // Change background color on header to highlight new step
-
-                 document.getElementById('HeaderTableStep3').style.color= '#66CCFF';
-
-                document.getElementById('HeaderTableStep4').style.color = '#000000';
-
-            }
-
-            else if (document.getElementById('ButtonPrevious').name == 'Step4')
-
-            {
-
-                // Change the button name - we use this to keep track of which step to display on a click
-
-                document.getElementById('ButtonNext').name = 'Step5';
-
-                document.getElementById('ButtonPrevious').name = 'Step3';
-
-                // Disable/enable buttons when reach reach start and review steps
-
-                document.getElementById('ButtonNext').disabled = '';
-
-                document.getElementById('SubmitFinal').disabled = 'disabled';
-
-                // Set new step to display and turn off display of current step
-
-                document.getElementById('Step5').style.display = 'none';
-
-                document.getElementById('Step4').style.display = '';
-
-                // Change background color on header to highlight new step
-
-                 document.getElementById('HeaderTableStep4').style.color= '#66CCFF';
-
-                document.getElementById('HeaderTableStep5').style.color = '#000000';
-
-            }
-
-        }
-
-
-        
-
-        // This function handles loading the review table innerHTML for the user to review before final submission
-
-        function loadStep5Review()
-
-        {
-
-            // Assign values to appropriate cells in review table
-
-            document.getElementById('ReviewFirstName').innerHTML = document.getElementById('TextFirstName').value;
-
-            document.getElementById('ReviewMiddleName').innerHTML = document.getElementById('TextMiddleName').value;
-
-            document.getElementById('ReviewLastName').innerHTML = document.getElementById('TextLastName').value;
-
-            document.getElementById('ReviewEmail').innerHTML = document.getElementById('TextEmail').value;
-
-            // Indicate Yes or No based on subscription checkbox checked
-
-            if (document.getElementById('CheckboxHtmlGoodies').checked == 1)
-
-            {
-
-                document.getElementById('ReviewHtmlGoodies').innerHTML = 'Yes';
-
-            }
-
-            else
-
-            {
-
-                document.getElementById('ReviewHtmlGoodies').innerHTML = 'No';
-
-            }
-
-            if (document.getElementById('CheckboxJavaScript').checked == 1)
-
-            {
-
-                document.getElementById('ReviewJavaScript').innerHTML = 'Yes';
-
-            }
-
-            else
-
-            {
-
-                document.getElementById('ReviewJavaScript').innerHTML = 'No';
-
-            }
-
-            if (document.getElementById('CheckboxWdvl').checked == 1)
-
-            {
-
-                document.getElementById('ReviewWdvl').innerHTML = 'Yes';
-
-            }
-
-            else
-
-            {
-
-                document.getElementById('ReviewWdvl').innerHTML = 'No';
-
-            }
-
-            // Special case to display password as asterisks
-
-            var iCounter = 1;
-
-            var iCharacterCount = document.getElementById('TextPassword').value.length;
-
-            var passwordMasked = '';
-
-            for (iCounter = 1; iCounter <= iCharacterCount; iCounter++)
-
-            {
-
-                passwordMasked = passwordMasked + '*';
-
-            }
-
-            document.getElementById('ReviewPassword').innerHTML = passwordMasked;
-
-        }
-
-    </script>
-    
-    
     
 </head>
 
@@ -579,13 +242,8 @@
                        
                         
                     
-                            <!--javascript -->
-                            <script src="js/jquery-1.11.1.js" type=
-                      "text/javascript">
-                        </script>
-                    <script src="js/bootstrap.min.js" type="text/javascript">
-                    </script>
-                        <!--------------------------------------------------------------- -->
+                
+
 					</div>
                      <!-----------------------------Prosthiki -------------------------------- -->
 					<div class="tab-pane" id="Prosthiki">
@@ -1157,8 +815,8 @@
 <span id="Step2" style="display:none">
     <div class="container" id="containerform">
         <div class="row clearfix" >
-            <div class="col-md-12 column">
-                <div class="form-group">
+            <div class="col-md-12 column" id="entrycol">
+                <div class="form-group" id="entry0">
                      <label class="col-sm-5 control-label" for="inputcompany">
                         Επωνυμία Επιχείρησης
                     </label>
@@ -1166,6 +824,7 @@
                         <div class="col-sm-4">
                             <input class="form-control" id="inputcompany" name="inputcompany" data-toggle="modal" data-target="#modal-container-803714"type="text">
                         </div>
+                    <br><br>
                 </div>
             </div>    
         </div>      
@@ -1174,7 +833,7 @@
         <br>
 	   <div class="row clearfix">
             <div class="col-md-6 column">
-                <input id="Buttonadd" class="btn btn-default" type="button" value="Πρόσθεσε Επιχείρηση"  name="addentry" />
+                <input id="Buttonadd" class="btn btn-default" type="button" onclick="addCompany();" value="Πρόσθεσε Επιχείρηση"  name="addentry" />
             </div>
            <div class="col-md-6 column">
 			
@@ -2114,46 +1773,8 @@
 	                              	</div>
 	</div>
 </div>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>    
-<script>
-var intTextBox=0;
-var choiceCount=0;
-
-//FUNCTION TO ADD Company TEXT BOX 
-function addCompany()
-{
-	if (choiceCount < 100 && intTextBox < 200) {
-		intTextBox = intTextBox + 1;
-		choiceCount = choiceCount+1;
-		var contentID = document.getElementById('chemical');
-		var newTBDiv = document.createElement('tr');
-		newTBDiv.setAttribute('id','chemicaltexts'+intTextBox);
-		newTBDiv.innerHTML ="<td><input disabled  style='border:none;text-align:right;font-weight: bold;' value='"+choiceCount+"'/></td><td><input style='border:none'/></td><td><input style='border:none'/></td><td><input style='border:none'/></td><td><input style='border:none'/></td><td><input style='border:none'/></td><td><input style='border:none'/></td><td><input style='border:none'/></td><td><input type='checkbox'/></td><td><input name='remove' type='button' value='X' onclick='removeElementID("+intTextBox+");' /></td>"; 
-		contentID.appendChild(newTBDiv);
-	} else {
-		alert("Φτάσατε το μέγιστο όριο χημικών ουσιών που μπορείτε να προσθέσετε");
-	}
-}
-
-
-//FUNCTION TO REMOVE Company TEXT BOX 
-
-function removeCompanyID(cnum)
-{
-	var contentID = document.getElementById('chemical');
-	contentID.removeChild(document.getElementById('chemicaltexts'+cnum));
-	//intTextBox = intTextBox-1; this would break it
-	choiceCount = choiceCount-1;
-}
-);  
-$('#modal-container-803714').on('show', function () {
-       $(this).find('.modal-body').css({
-              width:'auto', //probably not needed
-              height:'auto', //probably not needed 
-              'max-height':'100%'
-       });    
-</script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>        
 </body>
 </html>
