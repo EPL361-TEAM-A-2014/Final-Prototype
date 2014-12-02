@@ -1,0 +1,1104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap 3, from LayoutIt!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="img/favicon.png">
+  
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+    
+      <script type="text/javascript">
+
+    
+
+        // This function handles style and display changes for each next button click
+
+        function handleWizardNext()
+
+        {
+
+            if (document.getElementById('ButtonNext').name == 'Step2')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step3';
+
+                document.getElementById('ButtonPrevious').name = 'Step1';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonPrevious').disabled = '';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step1').style.display = 'none';
+
+                document.getElementById('Step2').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                document.getElementById('HeaderTableStep2').style.color= '#66CCFF';
+
+                 document.getElementById('HeaderTableStep1').style.color = '#9DA1A3';
+
+            }
+
+            else if (document.getElementById('ButtonNext').name == 'Step3')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step4';
+
+                document.getElementById('ButtonPrevious').name = 'Step2';
+
+                document.getElementById('Step2').style.display = 'none';
+
+                document.getElementById('Step3').style.display = '';
+
+                // Change background color on header to highlight new step
+
+               
+                document.getElementById('HeaderTableStep3').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep2').style.color = '#9DA1A3';
+
+
+            }
+
+            else if (document.getElementById('ButtonNext').name == 'Step4')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step5';
+
+                document.getElementById('ButtonPrevious').name = 'Step3';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step3').style.display = 'none';
+
+                document.getElementById('Step4').style.display = '';
+
+                // Change background color on header to highlight new step
+
+               
+                document.getElementById('HeaderTableStep4').style.color= '#66CCFF';
+
+                 document.getElementById('HeaderTableStep3').style.color = '#9DA1A3';
+
+
+            }
+
+            else if (document.getElementById('ButtonNext').name == 'Step5')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = '';
+
+                document.getElementById('ButtonPrevious').name = 'Step4';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonNext').disabled = 'disabled';
+
+                document.getElementById('SubmitFinal').disabled = '';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step4').style.display = 'none';
+
+                document.getElementById('Step5').style.display = '';
+
+                // Change background color on header to highlight new step
+
+               
+                document.getElementById('HeaderTableStep5').style.color= '#66CCFF';
+
+                 document.getElementById('HeaderTableStep4').style.color = '#9DA1A3';
+
+
+                // Load table elements for final review step
+
+                loadStep5Review();
+
+            }
+
+        }
+
+        
+
+        // This function handles style and display changes for each previous button click
+
+        function handleWizardPrevious()
+
+        {
+
+            if (document.getElementById('ButtonPrevious').name == 'Step1')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step2';
+
+                document.getElementById('ButtonPrevious').name = '';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonPrevious').disabled = 'disabled';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step2').style.display = 'none';
+
+                document.getElementById('Step1').style.display = '';
+
+                // Change background color on header to highlight new step
+				 document.getElementById('HeaderTableStep1').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep2').style.color = '#000000';
+
+
+            }
+
+            else if (document.getElementById('ButtonPrevious').name == 'Step2')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step3';
+
+                document.getElementById('ButtonPrevious').name = 'Step1';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step3').style.display = 'none';
+
+                document.getElementById('Step2').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                 document.getElementById('HeaderTableStep2').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep3').style.color = '#000000';
+            }
+
+            else if (document.getElementById('ButtonPrevious').name == 'Step3')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step4';
+
+                document.getElementById('ButtonPrevious').name = 'Step2';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step4').style.display = 'none';
+
+                document.getElementById('Step3').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                 document.getElementById('HeaderTableStep3').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep4').style.color = '#000000';
+
+            }
+
+            else if (document.getElementById('ButtonPrevious').name == 'Step4')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step5';
+
+                document.getElementById('ButtonPrevious').name = 'Step3';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonNext').disabled = '';
+
+                document.getElementById('SubmitFinal').disabled = 'disabled';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step5').style.display = 'none';
+
+                document.getElementById('Step4').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                 document.getElementById('HeaderTableStep4').style.color= '#66CCFF';
+
+                document.getElementById('HeaderTableStep5').style.color = '#000000';
+
+            }
+
+        }
+
+
+        
+
+        // This function handles loading the review table innerHTML for the user to review before final submission
+
+        function loadStep5Review()
+
+        {
+
+            // Assign values to appropriate cells in review table
+
+            document.getElementById('ReviewFirstName').innerHTML = document.getElementById('TextFirstName').value;
+
+            document.getElementById('ReviewMiddleName').innerHTML = document.getElementById('TextMiddleName').value;
+
+            document.getElementById('ReviewLastName').innerHTML = document.getElementById('TextLastName').value;
+
+            document.getElementById('ReviewEmail').innerHTML = document.getElementById('TextEmail').value;
+
+            // Indicate Yes or No based on subscription checkbox checked
+
+            if (document.getElementById('CheckboxHtmlGoodies').checked == 1)
+
+            {
+
+                document.getElementById('ReviewHtmlGoodies').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewHtmlGoodies').innerHTML = 'No';
+
+            }
+
+            if (document.getElementById('CheckboxJavaScript').checked == 1)
+
+            {
+
+                document.getElementById('ReviewJavaScript').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewJavaScript').innerHTML = 'No';
+
+            }
+
+            if (document.getElementById('CheckboxWdvl').checked == 1)
+
+            {
+
+                document.getElementById('ReviewWdvl').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewWdvl').innerHTML = 'No';
+
+            }
+
+            // Special case to display password as asterisks
+
+            var iCounter = 1;
+
+            var iCharacterCount = document.getElementById('TextPassword').value.length;
+
+            var passwordMasked = '';
+
+            for (iCounter = 1; iCounter <= iCharacterCount; iCounter++)
+
+            {
+
+                passwordMasked = passwordMasked + '*';
+
+            }
+
+            document.getElementById('ReviewPassword').innerHTML = passwordMasked;
+
+        }
+
+    </script>
+    
+    
+    
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<img src="banner_gr_Laa.png" width="100%" height="98">
+		</div>
+	</div>
+  <div class="row clearfix">
+		<div class="col-md-4 column">
+			<h3>
+				Αποτέλεσμα Αναζήτησης 
+		  </h3>
+		</div>
+        
+        
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="tabbable" id="tabs-779710">
+				<ul class="nav nav-tabs">
+		
+					<li>
+						<a href="#Proion" data-toggle="tab">Στοιχεία Χιμικού  Προιόντος</a>
+					</li>
+                    <li>
+						<a href="#promitheftis" data-toggle="tab">Στοιχεία Προμηθευτικής Εταιρίας </a>
+					</li>
+                   	<li> <a href="#paraksevastis" data-toggle="tab">Στοιχεία Παρασκευάστριας Εταιρίας </a></li>
+                     <li>
+						<a href="#ousia" data-toggle="tab">Στοιχεία Χειμικών Ουσιών  </a>
+					</li>
+				</ul>
+				<div class="tab-content">
+                <!-----------------------------Stixia xristii---------------------------------- -->
+
+                     <!-----------------------------Prosthiki -------------------------------- -->
+					<div class="tab-pane" id="Proion">
+		<div class="col-md-12 ">
+        <div class="container">
+        	<div class="row">
+       				
+                              
+                             <br>
+                      <form class="form-horizontal" role="form">
+                      
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Χημική Ονομασία:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                          </div>
+                        </div>
+                        
+                  
+                      
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Εμπορική Ονομασία:</label><td>
+							
+						</td>
+                        <td>
+						
+						</td>
+                        <td>
+						
+						</td>
+						<td>
+					
+						</td>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                          </div>
+                        </div>
+                       
+                       
+                               <div class="form-group">
+                              <label class="control-label col-sm-4" for="fax">Προβλεπόμενες Χρήσεις:</label>
+                              <div class="col-sm-6">
+                                <textarea type="fax" class="form-control" rows="5" id="inputotherinfo" /></textarea>
+                             
+                              </div>
+                           </div>
+                        
+                  
+                           
+                           <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Κατάσταση:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                            <br>
+                          </div>
+                        </div>
+                        
+                  
+                         <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Διεύθυνση Αποθήκευσης Μείγματος:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                            <br>
+                          </div>
+                        </div>
+                    
+                         
+                        <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Στοιχεία Ταξινόμησης:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                            <br>
+                          </div>
+                        </div>
+            
+                         <div class="form-group">
+                          <label class="control-label col-sm-4" for="name">Όγκος Συσκευασίας:</label>
+                    
+                          <div class="col-sm-6">
+                            <input type="name" class="form-control" id="inputname" />
+                            <br>
+                          </div>
+                        </div>
+                        
+                
+       
+                            <div class="form-group">
+                              <label class="control-label col-sm-4" for="fax">Άλλες Πληροφορίες:</label>
+                              <div class="col-sm-6">
+                                <textarea type="fax" class="form-control" rows="5" id="inputotherinfo" /></textarea>
+                                <br>
+                              </div>
+                           </div>
+                        </form>
+                        
+                        
+                        
+        
+        
+		</div>
+	</div>
+</div>
+                        
+                        
+					</div>
+                    
+                     <!-----------------------------Anazitisi------------------------------- -->
+                    <div class="tab-pane" id="promitheftis">
+                    
+	<div class="container" align="center">
+	<div class="row clearfix">
+    	<div class="col-md-1 column">
+			</div>
+			<div class="col-md-10 column" align="center">
+            </br>
+            </br>
+            </br>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+                        <th>
+							Όνομα Εταιρίας 
+						</th>
+                        <th>
+							Όνομα Υπεύθυνου Επικοινωνίας 
+						</th>
+                       
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="active">
+						<td>
+							1
+						</td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+
+												
+					</tr>
+					<tr class="active">
+						<td>
+							2
+						</td>
+                        <td>
+                        </td>
+						<td>
+                        </td>
+					</tr>
+					<tr class="active">
+						<td>
+							3
+						</td>
+                        <td>
+                        </td>
+						<td>
+                        </td>
+					</tr>
+					<tr class="active">
+						<td>
+							4
+						</td>
+                        <td>
+                        </td>
+						<td>
+                        </td>
+						
+					</tr>
+					<tr class="active">
+						<td>
+							5
+						</td>
+						<td>
+                        </td>
+                        <td>
+                        </td>
+					</tr>
+                    
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<!-----------------------------Anazitisi------------------------------- -->
+                    <div class="tab-pane" id="paraksevastis">
+
+<div class="container">
+        <br>
+
+        <div class="row clearfix">
+            <div class="col-md-12 column" id="form">
+                <h3>Στοιχεία Υπεύθυνου Επικοινωνίας</h3><br>
+
+                <h4>Παρασκευάστριας Εταιρίας</h4>
+                <hr>
+
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for=
+                        "inputname">Όνομα: *</label>
+
+                        <div class="col-sm-4">
+                            <input class="form-control" id="inputname" type=
+                            "name">
+                        </div>
+                    </div>
+                    
+                     <div class="form-group">
+                        <label class="col-sm-4 control-label" for=
+                        "inputsurname">Επίθετο: *</label>
+
+                        <div class="col-sm-4">
+                            <input class="form-control" id="inputsurname" type=
+                            "text">
+                        </div>
+                        </div>   
+                   
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for=
+                        "inputaddress">Διεύθυνση:</label>
+
+                        <div class="col-sm-4">
+                            <input class="form-control" id="inputaddress" type=
+                            "text">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for=
+                        "inputpo">T.K. :</label>
+
+                        <div class="col-sm-3">
+                            <input class="form-control" id="inputpo" type=
+                            "number">
+                        </div>
+
+                        <div class="col-sm-1"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="left" title="Ταχυδρομικός Κώδικας"></i></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for=
+                        "inputcity">Πόλη:</label>
+
+                        <div class="col-sm-4">
+                            <input class="form-control" id="inputcity" type=
+                            "text">
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for=
+                        "inputphone">Τηλέφωνο:</label>
+
+                        <div class="col-sm-4">
+                            <input class="form-control" id="inputphone" type=
+                            "number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for=
+                        "inputfax">Φάξ:</label>
+
+                        <div class="col-sm-4">
+                            <input class="form-control" id="inputfax" type=
+                            "number">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for=
+                        "inputcity">Ηλεκτρονικό Ταχυδρομείο:</label>
+
+                        <div class="col-sm-4"style="margin-left:10px">
+                            <input class="form-control" id="inputcity" type=
+                            "email">
+                        </div>
+                    </div>
+                    
+                    <h3>Στοιχεία</h3><br>
+
+                    <h4>Παρασκευάστριας Εταιρίας</h4>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputname">Επωνυμία Επιχείρησης:*</label>
+
+                        <div class="col-sm-5">
+                            <input class="form-control" id="inputname" type=
+                            "name">
+                        </div>
+ <div class="col-sm-1"><i class="fa fa-question-circle" data-toggle="popover" data-placement="top" title="Αν πρόκειται για εταιρεία δηλώστε
+ το όνομα της εταιρείας όπως δηλώθηκε 
+ στον Έφορο Εταιρειών"></i></div>
+</div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputname">Εμπορική Επωνυμία Επιχείρησης:</label>
+
+                        <div class="col-sm-5">
+                            <input class="form-control" id="inputname" type=
+                            "text">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputname">Άλλη Επωνυμία:</label>
+
+                        <div class="col-sm-5">
+                            <input class="form-control" id="inputname" type=
+                            "text">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputlegalform">Νομική Μορφή:</label>
+
+                        <div class="col-sm-5">
+                            <input class="form-control" id="inputlegalform"
+                            type="text">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputname">Όνομα Διευθυντή:</label>
+                        <div class="col-sm-5 ">
+                            <input class="form-control" id="inputname" type=
+                            "text">
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputaddress">Διεύθυνση:</label>
+
+                        <div class="col-sm-5">
+                            <input class="form-control" id="inputaddress" type=
+                            "text">
+                        </div>
+                        <div class="col-sm-1"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="left" title="Ταχυδρομικός Κώδικας"></i></div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputpo">T.K. :</label>
+
+                        <div class="col-sm-5">
+                            <input class="form-control" id="inputpo" type=
+                            "number">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputcountry">Χώρα:</label>
+                        <datalist  id ="xores">
+											<option value="Αφγανιστάν"></option>
+											<option value="Nησιά Åland"></option>
+											<option value="Αλβανία"></option>
+											<option value="Αλγερία"></option>
+											<option value="Αμερικανική Σαμόα"></option>
+											<option value="Ανδόρα"></option>
+											<option value="Αγκόλα"></option>
+											<option value="Ανγκουίλα"></option>
+											<option value="Ανταρκτική"></option>
+											<option value="Αντίγκουα και Μπαρμπούντα"></option>
+											<option value="Αργεντινή"></option>
+											<option value="Αρμενία"></option>
+											<option value="Αρούμπα"></option>
+											<option value="Αυστραλία"></option>
+											<option value="Αυστρία"></option>
+											<option value="Αζερμπαϊτζάν"></option>
+											<option value="Μπαχάμες"></option>
+											<option value="Μπαχρέιν"></option>
+											<option value="Μπαγκλαντές"></option>
+											<option value="Μπαρμπάντος"></option>
+											<option value="Λευκορωσία"></option>
+											<option value="Βέλγιο"></option>
+											<option value="Μπελίζ"></option>
+											<option value="Μπενίν"></option>
+											<option value="Βερμούδες"></option>
+											<option value="Μπουτάν"></option>
+											<option value="Βολιβία, πολυεθνικά κατάσταση του"></option>
+											<option value="Μποναίρ, Άγιος Ευστάθιος και Σάμπα"></option>
+											<option value="Βοσνία και Ερζεγοβίνη"></option>
+											<option value="Μποτσουάνα"></option>
+											<option value="Νήσος Μπουβέ"></option>
+											<option value="Βραζιλία"></option>
+											<option value="Βρετανικό Έδαφος Ινδικού Ωκεανού"></option>
+											<option value="Μπρουνέι Νταρουσαλάμ"></option>
+											<option value="Βουλγαρία"></option>
+											<option value="Μπουρκίνα Φάσο"></option>
+											<option value="Μπουρούντι"></option>
+											<option value="Καμπότζη"></option>
+											<option value="Καμερούν"></option>
+											<option value="Καναδάς"></option>
+											<option value="Πράσινο Ακρωτήριο"></option>
+											<option value="Νησιά Καϊμάν"></option>
+											<option value="Κεντροαφρικανική Δημοκρατία"></option>
+											<option value="Τσαντ"></option>
+											<option value="Χιλή"></option>
+											<option value="Κίνα"></option>
+											<option value="Νήσος των Χριστουγέννων"></option>
+											<option value="Νησιά Κόκος (Κίλινγκ)"></option>
+											<option value="Κολομβία"></option>
+											<option value="Κομόρες"></option>
+											<option value="Κονγκό"></option>
+											<option value="Κονγκό, Λαϊκή Δημοκρατία του"></option>
+											<option value="Νήσοι Κουκ"></option>
+											<option value="Κόστα Ρίκα"></option>
+											<option value="Ακτή Ελεφαντοστού"></option>
+											<option value="Κροατία"></option>
+											<option value="Κούβα"></option>
+											<option value="Κουρασάο"></option>
+											<option value="Κύπρος"></option>
+											<option value="Τσεχία"></option>
+											<option value="Δανία"></option>
+											<option value="Τζιμπουτί"></option>
+											<option value="Ντομίνικα"></option>
+											<option value="Δομινικανή Δημοκρατία"></option>
+											<option value="Ισημερινός"></option>
+											<option value="Αίγυπτος"></option>
+											<option value="Ελ Σαλβαδόρ"></option>
+											<option value="Ισημερινή Γουινέα"></option>
+											<option value="Ερυθραία"></option>
+											<option value="Εσθονία"></option>
+											<option value="Αιθιοπία"></option>
+											<option value="Νησιά Φώκλαντ (Μαλβίνες)"></option>
+											<option value="Νησιά Φερόε"></option>
+											<option value="Φίτζι"></option>
+											<option value="Φινλανδία"></option>
+											<option value="Γαλλία"></option>
+											<option value="Γαλλική Γουιάνα"></option>
+											<option value="Γαλλική Πολυνησία"></option>
+											<option value="Γαλλικά Νότια Εδάφη"></option>
+											<option value="Γκαμπόν"></option>
+											<option value="Γκάμπια"></option>
+											<option value="Γεωργία"></option>
+											<option value="Γερμανία"></option>
+											<option value="Γκάνα"></option>
+											<option value="Γιβραλτάρ"></option>
+											<option value="Ελλάδα"></option>
+											<option value="Γροιλανδία"></option>
+											<option value="Γρενάδα"></option>
+											<option value="Γουαδελούπη"></option>
+											<option value="Γκουάμ"></option>
+											<option value="Γουατεμάλα"></option>
+											<option value="Γουινέα"></option>
+											<option value="Γουινέα-Μπισάου"></option>
+											<option value="Γουιάνα"></option>
+											<option value="Αϊτή"></option>
+											<option value="ΜακΝτόναλντ Νήσοι"></option>
+											<option value="Βατικανό"></option>
+											<option value="Ονδούρα"></option>
+											<option value="Χονγκ Κονγκ"></option>
+											<option value="Ουγγαρία"></option>
+											<option value="Ισλανδία"></option>
+											<option value="Ινδία"></option>
+											<option value="Ινδονησία"></option>
+											<option value="Ιράν, Ισλαμική Δημοκρατία του"></option>
+											<option value="Ιράκ"></option>
+											<option value="Ιρλανδία"></option>
+											<option value="Νήσος του Μαν"></option>
+											<option value="Ισραήλ"></option>
+											<option value="Ιταλία"></option>
+											<option value="Τζαμάικα"></option>
+											<option value="Ιαπωνία"></option>
+											<option value="Τζέρσεϊ"></option>
+											<option value="Ιορδανία"></option>
+											<option value="Καζακστάν"></option>
+											<option value="Κένυα"></option>
+											<option value="Κιριμπάτι"></option>
+											<option value="Κορέα, Λαϊκή Δημοκρατία του"></option>
+											<option value="Κορέα, Δημοκρατία της"></option>
+											<option value="Κουβέιτ"></option>
+											<option value="Κιργιστάν"></option>
+											<option value="Δημοκρατική Λαϊκή Δημοκρατία"></option>
+											<option value="Λετονία"></option>
+											<option value="Λίβανος"></option>
+											<option value="Λεσότο"></option>
+											<option value="Λιβερία"></option>
+											<option value="Λιβύη"></option>
+											<option value="Λιχτενστάιν"></option>
+											<option value="Λιθουανία"></option>
+											<option value="Λουξεμβούργο"></option>
+											<option value="Μακάο"></option>
+											<option value="Μαδαγασκάρη"></option>
+											<option value="Μαλάουι"></option>
+											<option value="Μαλαισία"></option>
+											<option value="Μαλδίβες"></option>
+											<option value="Μάλι"></option>
+											<option value="Μάλτα"></option>
+											<option value="Νησιά Μάρσαλ"></option>
+											<option value="Μαρτινίκα"></option>
+											<option value="Μαυριτανία"></option>
+											<option value="Μαυρίκιος"></option>
+											<option value="Μαγιότ"></option>
+											<option value="Μεξικό"></option>
+											<option value="Μικρονησία, Ομόσπονδες Πολιτείες της"></option>
+											<option value="Μολδαβία, Δημοκρατία της"></option>
+											<option value="Μονακό"></option>
+											<option value="Μογγολία"></option>
+											<option value="Μαυροβούνιο"></option>
+											<option value="Μονσεράτ"></option>
+											<option value="Μαρόκο"></option>
+											<option value="Μοζαμβίκη"></option>
+											<option value="Μιανμάρ"></option>
+											<option value="Ναμίμπια"></option>
+											<option value="Ναουρού"></option>
+											<option value="Νεπάλ"></option>
+											<option value="Ολλανδία"></option>
+											<option value="Νέα Καληδονία"></option>
+											<option value="Νέα Ζηλανδία"></option>
+											<option value="Νικαράγουα"></option>
+											<option value="Νίγηρας"></option>
+											<option value="Νιγηρία"></option>
+											<option value="Νιούε"></option>
+											<option value="Νησί Νόρφολκ"></option>
+											<option value="Βόρειες Μαριάνες Νήσοι"></option>
+											<option value="Νορβηγία"></option>
+											<option value="Ομάν"></option>
+											<option value="Πακιστάν"></option>
+											<option value="Παλάου"></option>
+											<option value="Κατεχόμενα Παλαιστινιακά Εδάφη"></option>
+											<option value="Παναμάς"></option>
+											<option value="Παπούα Νέα Γουινέα"></option>
+											<option value="Παραγουάη"></option>
+											<option value="Περού"></option>
+											<option value="Φιλιππίνες"></option>
+											<option value="Πίτκερν"></option>
+											<option value="Πολωνία"></option>
+											<option value="Πορτογαλία"></option>
+											<option value="Πουέρτο Ρίκο"></option>
+											<option value="Κατάρ"></option>
+											<option value="Ρεϋνιόν"></option>
+											<option value="Ρουμανία"></option>
+											<option value="Ρωσική Ομοσπονδία"></option>
+											<option value=" Ρουάντα"></option>
+											<option value="Άγιος Βαρθολομαίος"></option>
+											<option value="Αγία Ελένη, της Αναλήψεως και Τριστάν ντα Κούνια"></option>
+											<option value="Άγιος Χριστόφορος και Νέβις"></option>
+											<option value="Αγία Λουκία"></option>
+											<option value="Άγιος Μαρτίνος (Γαλλικό τμήμα)"></option>
+											<option value="Σαιν Πιερ και Μικελόν"></option>
+											<option value="Άγιος Βικέντιος και Γρεναδίνες"></option>
+											<option value="Σαμόα"></option>
+											<option value="Σαν Μαρίνο"></option>
+											<option value="Σάο Τομέ και Πρίνσιπε"></option>
+											<option value="Σαουδική Αραβία"></option>
+											<option value="Σενεγάλη"></option>
+											<option value="Σερβία"></option>
+											<option value="Σεϋχέλλες"></option>
+											<option value="Σιέρα Λεόνε"></option>
+											<option value="Σιγκαπούρη"></option>
+											<option value="Άγιος Μαρτίνος (ολλανδικό τμήμα)"></option>
+											<option value="Σλοβακία"></option>
+											<option value="Σλοβενία"></option>
+											<option value="Νησιά Σολομώντα"></option>
+											<option value="Σομαλία"></option>
+											<option value="Νότια Αφρική"></option>
+											<option value="Νότια Γεωργία και Νότια Νησιά Σάντουιτς"></option>
+											<option value="Νότιο Σουδάν"></option>
+											<option value="Ισπανία"></option>
+											<option value="Σρι Λάνκα"></option>
+											<option value="Σουδάν"></option>
+											<option value="Σουρινάμ"></option>
+											<option value="Σβάλμπαρντ και Γιαν Μαγιέν"></option>
+											<option value="Σουαζιλάνδη"></option>
+											<option value="Σουηδία"></option>
+											<option value="Ελβετία"></option>
+											<option value="Συριακή Αραβική Δημοκρατία"></option>
+											<option value="Ταϊβάν, Επαρχία της Κίνας"></option>
+											<option value="Τατζικιστάν"></option>
+											<option value="Τανζανία, Ενωμένη Δημοκρατία της"></option>
+											<option value="Ταϊλάνδη"></option>
+											<option value="Ανατολικό Τιμόρ"></option>
+											<option value="Τόγκο"></option>
+											<option value="Τοκελάου"></option>
+											<option value="Τόνγκα"></option>
+											<option value="Τρινιντάντ και Τομπάγκο"></option>
+											<option value="Τυνησία"></option>
+											<option value="Τουρκία"></option>
+											<option value="Τουρκμενιστάν"></option>
+											<option value="Τερκς και Κάικος"></option>
+											<option value="Τουβαλού"></option>
+											<option value="Ουγκάντα"></option>
+											<option value="Ουκρανία"></option>
+											<option value="Ηνωμένα Αραβικά Εμιράτα"></option>
+											<option value="Ηνωμένο Βασίλειο"></option>
+											<option value="Ηνωμένες Πολιτείες"></option>
+											<option value="Ηνωμένες Πολιτείες Μικρά απομονωμένα νησιά"></option>
+											<option value="Ουρουγουάη"></option>
+											<option value="Ουζμπεκιστάν"></option>
+											<option value="Βανουάτου"></option>
+											<option value="Βενεζουέλα, Βολιβαριανής Δημοκρατίας της"></option>
+											<option value="Βιετνάμ"></option>
+											<option value="Βρετανικοί Παρθένοι Νήσοι"></option>
+											<option value="Αμερικανικές Παρθένοι Νήσοι"></option>
+											<option value="Ουόλις και Φουτούνα"></option>
+											<option value="Δυτική Σαχάρα"></option>
+											<option value="Υεμένη"></option>
+											<option value="Ζάμπια"></option>
+											<option value="Ζιμπάμπουε"></option>
+
+										</datalist>
+                        <div class="col-sm-5">
+                            <input autocomplete="false" class="form-control"
+                            id="xora" list="xores" onblur=
+                            "inputCheck('xora','wrongxora');" required>
+                            <datalist id="xores"></datalist>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+        "inputcity">Πόλη:</label>
+
+        <div class="col-sm-5">
+            <input class="form-control" id="inputcity" type="text">
+        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for=
+                        "inputphone">Τηλέφωνο:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="inputfax" type="number">
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                    <label class="col-sm-6 control-label" for=
+                        "inputfax">Φάξ:</label>
+                    <div class="col-sm-5">
+                            <input class="form-control" id="inputphone" type="number">
+                        </div>
+
+                </div>
+                   
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for="inputcity">Ηλεκτρονικό
+                        Ταχυδρομείο:</label>
+
+                        <div class="col-sm-5">
+                            <input class="form-control" id="inputcity" type="email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label" for="inputcity">Άλλες
+                        Πληροφορίες:</label>
+
+                        <div class="col-sm-5">
+                                <textarea class="otherinfo">
+                </textarea>
+                            </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </form>
+                
+                </div>
+
+</div>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
