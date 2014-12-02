@@ -27,7 +27,14 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="img/favicon.png">
-    
+  
+
+
+
+
+
+
+
 </head>
 
 <body>
@@ -1508,21 +1515,116 @@
 <span id="Step4" style="display:none">
 
 
-     <br />
-    <br />
-    
-    <br />
-    <br />
-    
     <div class="container">
-	<div class="row clearfix">
-		<div class="col-md-6 column" align="left">
-        	<input id="ButtonPrevious" class="btn btn-default" type="button" value="Previous"  name="" onClick="handleWizardPrevious()" />
-		</div>
-		<div class="col-md-6 column" align="right">
-         <input id="ButtonNext" class="btn btn-default" type="button" value="Next" name="Step2" onClick="handleWizardNext()" />
-		</div>
-	</div>
+
+  <div class="row clearfix">
+        <div class="col-md-6 column">
+        <table id ="chemical" >
+            <br>
+        </table>     
+            <br>
+
+        <div align="left">
+          <input type="submit" onclick="addElement();" name="add_element" value="Εισαγωγή στοιχείου" id="add_element" class="btn btn-info" />
+          <br><br>
+        </div>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-md-6 column" align="left">
+          <input id="ButtonPrevious" class="btn btn-default" type="button" value="Previous"  name="" onClick="handleWizardPrevious()" />
+    </div>
+      <div class="col-md-6 column" align="right">
+             <input id="ButtonNext" class="btn btn-default" type="button" value="Next" name="Step2" onClick="handleWizardNext()" />
+      </div>
+    </div>
+
+
+        <div class="col-md-6 column">
+            <div class="modal fade" id="modal-container-8" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                Χημική Ουσία
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                             <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                          <label class="control-label col-sm-5" for="name">Χημική ουσία:</label>
+                    
+                          <div class="col-sm-5">
+                            <input type="name" class="form-control" id="ximiki" />
+                          </div>
+                        </div>
+                         <div class="form-group">
+                          <label class="control-label col-sm-5" for="name">CAS:</label>
+                    
+                          <div class="col-sm-5">
+                            <input type="name" class="form-control" id="cas" />
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label class="control-label col-sm-5" for="name">EC/EINECS:</label>
+                    
+                          <div class="col-sm-5">
+                            <input type="name" class="form-control" id="einecs" />
+                          </div>
+                        </div>
+                    
+                          <div class="form-group">
+                          <label class="control-label col-sm-5" for="name">IUPAC:</label>
+                    
+                          <div class="col-sm-5">
+                            <input type="name" class="form-control" id="iupac" />
+                          </div>
+                        </div>
+                        
+                          <div class="form-group">
+                          <label class="control-label col-sm-5" for="name">Ονομασία:</label>
+                    
+                          <div class="col-sm-5">
+                            <input type="name" class="form-control" id="name" />
+                          </div>
+                        </div>
+                        
+                         <div class="form-group">
+                          <label class="control-label col-sm-5" for="name">Συγκέτρωση:</label>
+                    
+                          <div class="col-sm-5">
+                            <input type="name" class="form-control" id="inputname" />
+                          </div>
+                        </div>
+                        
+                           <div class="form-group">
+                          <label class="control-label col-sm-5" for="name">Στοιχεία Ταξινόμησης:</label>
+                    
+                          <div class="col-sm-5">
+                            <input type="name" class="form-control" id="inputname" />
+                          </div>
+                        </div>
+                        
+                         <div class="form-group">
+                          <label class="control-label col-sm-5" for="name">Εναρμονική Ταξινόμηση:</label>
+                    
+                          <div class="col-sm-5">
+                            <input type="name" class="form-control" id="inputname" />
+                          </div>
+                        </div>
+                  </form>
+             <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" >Save changes</button>
+                        </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
 </div>
 
 

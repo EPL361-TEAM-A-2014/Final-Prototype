@@ -355,3 +355,77 @@ function removeCompanyID(cnum)
 	//intTextBox = intTextBox-1; this would break it
 	choiceCount = choiceCount-1;
 }
+
+
+
+      
+var intTextBox=0;
+var choiceCount=0;
+
+//FUNCTION TO ADD TEXT BOX ELEMENT
+function addElement()
+{
+    if (choiceCount < 100 && intTextBox < 200) {
+        intTextBox = intTextBox + 1;
+        choiceCount = choiceCount+1;
+        var contentID = document.getElementById('chemical');
+        var newTBDiv = document.createElement('tr');
+        newTBDiv.setAttribute('id','chemicaltexts'+intTextBox);
+        newTBDiv.innerHTML ="<td>Χημική ουσία:</td><td> <input type='name' class='form-control' id='name'  id='modal-803714' href='#modal-container-8' role='button' class='btn' data-toggle='modal' /></td><td><input name='remove' type='button' value='X' class='btn btn-danger' onclick='removeElementID("+intTextBox+");' /></td>"; 
+        var newTBDiv1 = document.createElement('br');
+        contentID.appendChild(newTBDiv);
+        contentID.appendChild(newTBDiv1);
+    } else {
+        alert("Φτάσατε το μέγιστο όριο χημικών ουσιών που μπορείτε να προσθέσετε");
+    }
+}
+
+
+
+//FUNCTION TO REMOVE TEXT BOX ELEMENT
+
+function removeElementID(cnum)
+{
+    var contentID = document.getElementById('chemical');
+    contentID.removeChild(document.getElementById('chemicaltexts'+cnum));
+    //intTextBox = intTextBox-1; this would break it
+    choiceCount = choiceCount-1;
+}
+
+<!--submit window--> 
+$("#Browse_1").upload({
+        name: 'file',
+        action: '',
+        enctype: '',
+        params: {},
+        autoSubmit: true,
+        onSubmit: function() {},
+        onComplete: function() {},
+        onSelect: function() {}
+});
+$("#Browse_2").upload({
+        name: 'file',
+        action: '',
+        enctype: '',
+        params: {},
+        autoSubmit: true,
+        onSubmit: function() {},
+        onComplete: function() {},
+        onSelect: function() {}
+});
+<!--showsupdetails -->
+
+function displaySupDetails() {
+    //document.getElementById("checkbox").checked=true;
+    if(!document.getElementById("checkbox").checked)
+        document.getElementById("supdetails").style.display = "block";
+    else
+        document.getElementById("supdetails").style.display = "none";
+}
+
+
+function getData(){
+    document.getElementById("ximikiText").value=document.getElementById("ximiki").value;
+}
+
+
