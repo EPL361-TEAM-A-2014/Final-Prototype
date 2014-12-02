@@ -373,6 +373,7 @@ function addElement()
         newTBDiv.setAttribute('id','chemicaltexts'+intTextBox);
         newTBDiv.innerHTML ="<td>Χημική ουσία:</td><td> <input type='name' class='form-control' id='name'  id='modal-803714' href='#modal-container-8' role='button' class='btn' data-toggle='modal' /></td><td><input name='remove' type='button' value='X' class='btn btn-danger' onclick='removeElementID("+intTextBox+");' /></td>"; 
         var newTBDiv1 = document.createElement('br');
+        newTBDiv1.setAttribute('id','newline'+intTextBox);
         contentID.appendChild(newTBDiv);
         contentID.appendChild(newTBDiv1);
     } else {
@@ -388,6 +389,7 @@ function removeElementID(cnum)
 {
     var contentID = document.getElementById('chemical');
     contentID.removeChild(document.getElementById('chemicaltexts'+cnum));
+    contentID.removeChild(document.getElementById('newline'+cnum));
     //intTextBox = intTextBox-1; this would break it
     choiceCount = choiceCount-1;
 }
